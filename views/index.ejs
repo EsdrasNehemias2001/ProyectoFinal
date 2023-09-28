@@ -90,6 +90,33 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        function confirmar(Id) {
+            Swal.fire({
+                title: '¿Está seguro de eliminar el producto: ' + Id + '?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Eliminación Exitosa',
+                        text: 'El producto ha sido eliminado con éxito.',
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar'
+                    }).then(() => {
+                        window.location = '/delete/' + Id;
+                    });
+                }
+            });
+        }    
+    </script>
+
 </body>
 
 </html>
