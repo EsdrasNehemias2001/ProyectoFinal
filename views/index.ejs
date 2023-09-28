@@ -36,7 +36,7 @@
                 class="btn btn-outline-primary mt-4"><i class="bx bx-add-to-queue bx-rotate-90 bx-md"></i>Agregar</a>
         </div>
 
-        <table class="table table-bordered table-striped text-center mt-4">
+        <table id="productos" class="table table-bordered table-striped text-center mt-4">
 
             <thead>
                 <tr>
@@ -54,36 +54,10 @@
                     <th style="background-color: blue; color: white;" scope="col">Acciones</th>
                 </tr>
             </thead>
+
             <tbody>
-                <% resultados.forEach((nombre)=> { %>
-                    <tr>
-                        <td>
-                            <%= nombre.Id %>
-                        </td>
-                        <td>
-                            <%= nombre.Nombre %>
-                        </td>
-                        <td>
-                            <%= nombre.Contenido %>
-                        </td>
-                        <td>
-                            <%= nombre.Categoria %>
-                        </td>
-                        <td>
-                            <%= nombre.Precio %>
-                        </td>
-                        <td>
-                            <%= nombre.Stock %>
-                        </td>
-                        <td>
-                            <a href="/edit/<%= nombre.Id %>" class="btn btn-outline-info"><i
-                                    class='bx bxs-edit'></i>Editar</a>
-                            <a onclick="confirmar(<%= nombre.Id %>)" class="btn btn-outline-danger"><i
-                                    class='bx bxs-trash'></i>Eliminar</a>
-                        </td>
-                    </tr>
-                    <% }) %>
             </tbody>
+
         </table>
 
     </div>
@@ -97,6 +71,30 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.all.min.js"></script>
 
     <script>
+        $(document).ready(function () {
+            $('#productos').DataTable({
+                ajax: {
+                    url: "/data",
+                    dataSrc: ""
+                },
+                columns: [
+                    { data: "Id" },
+                    { data: "Nombre" },
+                    { data: "Contenido" },
+                    { data: "Categoria" },
+                    { data: "Precio" },
+                    { data: "Stock" },
+                    {
+                        data: null,
+                        "render": function (data) {
+                            return '<a href="/edit/' + data.Id + '"class="btn btn-outline-info" style="margin:4px"><i class="bx bxs-edit"></i>Editar</a><a onclick="confirmar(' + data.Id + ')" class="btn btn-outline-danger"><i class="bx bxs-trash"></i>Eliminar</a>'
+                        }
+                    }
+
+                ]
+            });
+        });
+
         function confirmar(Id) {
             Swal.fire({
                 title: '¿Está seguro de eliminar el producto: ' + Id + '?',
