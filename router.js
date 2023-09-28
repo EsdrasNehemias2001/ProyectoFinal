@@ -14,6 +14,18 @@ router.get('/', (req, res) => {
     })
 })
 
+/* RUTA CON VALORES EN FORMATO JSON */
+router.get('/data', (req, res) => {
+    conexion.query('SELECT * FROM productos', (error, resultados) => {
+        if (error) {
+            throw error;
+        } else {
+            data = JSON.stringify(resultados);
+            res.send(data);
+        }
+    })
+})
+
 //RUTA PARA CREAR REGISTROS
 router.get('/create', (req, res) => {
     res.render('create');
