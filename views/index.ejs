@@ -40,18 +40,19 @@
 
             <thead>
                 <tr>
-                    <th style="background-color: blue; color: white; font-size: 25px;" scope="col" colspan="7">
+                    <th style="background-color: blue; color: white; font-size: 25px; text-align: center;" scope="col"
+                        colspan="7">
                         TIENDA DON PEDRITO
                     </th>
                 </tr>
                 <tr class="bg-primary text-white">
-                    <th style="background-color: blue; color: white;" scope="col">ID</th>
-                    <th style="background-color: blue; color: white;" scope="col">Nombre</th>
-                    <th style="background-color: blue; color: white;" scope="col">Contenido</th>
-                    <th style="background-color: blue; color: white;" scope="col">Categoria</th>
-                    <th style="background-color: blue; color: white;" scope="col">Precio</th>
-                    <th style="background-color: blue; color: white;" scope="col">Stock</th>
-                    <th style="background-color: blue; color: white;" scope="col">Acciones</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">ID</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">Nombre</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">Contenido</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">Categoria</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">Precio</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">Stock</th>
+                    <th style="background-color: blue; color: white; text-align: center;" scope="col">Acciones</th>
                 </tr>
             </thead>
 
@@ -91,7 +92,9 @@
                         }
                     }
 
-                ]
+                ],
+                pageLength: 5,
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
             });
         });
 
