@@ -32,8 +32,9 @@
     </nav>
     <div class="container">
         <div style="display: inline-block;">
-            <a style="display: flex; justify-content: flex-start; align-items: center;" href="/create"
-                class="btn btn-outline-primary mt-4"><i class="bx bx-add-to-queue bx-rotate-90 bx-md"></i>Agregar</a>
+            <a style="display: flex; justify-content: flex-start; align-items: center; margin-bottom: 10px;"
+                href="/create" class="btn btn-outline-primary mt-4"><i
+                    class="bx bx-add-to-queue bx-rotate-90 bx-md"></i>Agregar</a>
         </div>
 
         <table id="productos" class="table table-bordered table-striped text-center mt-4">
@@ -94,7 +95,23 @@
 
                 ],
                 pageLength: 5,
-                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']],
+                language: {
+                    lengthMenu: "Mostrar _MENU_ registros por página",
+                    zeroRecords: "Ningún producto encontrado",
+                    info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+                    infoEmpty: "Ningún producto encontrado",
+                    infoFiltered: "(filtrados desde _MAX_ registros totales)",
+                    search: "Buscar:",
+                    loadingRecords: "Cargando...",
+                    paginate: {
+                        first: "Primero",
+                        last: "Último",
+                        next: "Siguiente",
+                        previous: "Anterior"
+                    }
+                }
+
             });
         });
 
